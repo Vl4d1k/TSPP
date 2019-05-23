@@ -17,15 +17,13 @@ namespace tspp
 
         public string secondName;
 
-        public void RemoveStudent()
+        public void RemoveStudent(List<Student> stud, int delNum)
         {
-            // TODO implement here
+            stud.Remove(stud[delNum]);
         }
-
-        public void AllowForExam()
+        public void AllowForExam(Student obj)
         {
-            // TODO implement here
+            obj.allowExam = true;
         }
-
     }
 }

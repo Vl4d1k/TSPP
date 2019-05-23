@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Deccan.cs" />
     <Compile Include="Mark.cs" />
-    <Compile Include="mark1.cs" />
     <Compile Include="Methodist.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

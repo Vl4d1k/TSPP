@@ -14,9 +14,9 @@ namespace tspp
 
         public string group;
 
-        public int number;
+        public string number;
 
-        bool allowExam;
+         public bool allowExam;
 
         public Student()
         {
@@ -27,15 +27,23 @@ namespace tspp
             Console.Write("Enter group: ");
             group = Console.ReadLine();
             Console.Write("Enter number: ");
-            number = Console.Read();
+            number = Console.ReadLine();
             allowExam = false;
         }
-
-        public void GetMarkList()
+        public void ShowStudList()
         {
-            // TODO implement here
+            Console.WriteLine($"First Name: {this.firstName} ");
+            Console.WriteLine($"Second Name: { this.secondName} ");
+            Console.WriteLine($"Group: {this.group} ");
+            Console.WriteLine($"Number of student: {this.number} ");
+            Console.WriteLine($"Exam: {this.allowExam} ");
+            Console.WriteLine("----------------");
         }
-        public void GetVisitList()
+        public void GetMarkList(Student obj)
+        {
+            
+        }
+        public void GetVisitList(Student obj)
         {
             // TODO implement here
         }

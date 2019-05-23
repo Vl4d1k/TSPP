@@ -11,19 +11,18 @@ namespace tspp
         public Teacher()
         {
         }
-        List<Mark> marks = new List<Mark>();
+        
         public string firstName;
-
         public string secondName;
 
-        public void SetMark()
+        public void SetMark(List<Mark> marks)
         {
-            // TODO implement here
+            marks.Add(new Mark());
         }
 
-        public void SetVisit()
+        public void SetVisit(List<Visit> visit)
         {
-            // TODO implement here
+            visit.Add(new Visit());
         }
     }
 }

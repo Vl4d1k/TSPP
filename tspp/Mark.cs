@@ -8,8 +8,24 @@ namespace tspp
 {
     public class Mark
     {
+        public Mark()
+        {
+            Console.Write("Enter number of student: ");
+            number = Console.Read();
+            Console.Write("Enter subject: ");
+            subject = Console.ReadLine();
+            Console.Write("Enter value: ");
+            value = Console.Read();
+        }
         public string subject;
         public int number;
-        public string value;
+        public int value;
+        public void ShowMarkList()
+        {
+            Console.WriteLine($"Number of student: {this.number} ");
+            Console.WriteLine($"Subject: {this.subject} ");
+            Console.WriteLine($"Value: { this.value} ");
+            Console.WriteLine("----------------");
+        }
     }
 }
