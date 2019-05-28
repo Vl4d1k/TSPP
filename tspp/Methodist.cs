@@ -13,9 +13,9 @@ namespace tspp
         }
 
         public string firstName;
+        public string secondName;
         StreamWriter sw = new StreamWriter("C:\\Users\\vlad1\\source\\repos\\tspp\\tspp\\report.txt");
         StreamWriter ex = new StreamWriter("C:\\Users\\vlad1\\source\\repos\\tspp\\tspp\\exam.txt");
-        public string secondName;
 
         public void MakeReport(Student obj)
         {

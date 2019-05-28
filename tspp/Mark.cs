@@ -11,15 +11,15 @@ namespace tspp
         public Mark()
         {
             Console.Write("Enter number of student: ");
-            number = Console.Read();
+            number = Console.ReadLine();
             Console.Write("Enter subject: ");
             subject = Console.ReadLine();
             Console.Write("Enter value: ");
-            value = Console.Read();
+            value = Console.ReadLine();
         }
         public string subject;
-        public int number;
-        public int value;
+        public string number;
+        public string value;
         public void ShowMarkList()
         {
             Console.WriteLine($"Number of student: {this.number} ");

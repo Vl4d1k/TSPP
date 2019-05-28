@@ -16,8 +16,12 @@ namespace tspp
 
         public string number;
 
-         public bool allowExam;
+        public bool allowExam;
 
+        public Student(string h)
+        {
+            firstName = h;
+        }
         public Student()
         {
             Console.Write("Enter first name: ");
@@ -39,13 +43,19 @@ namespace tspp
             Console.WriteLine($"Exam: {this.allowExam} ");
             Console.WriteLine("----------------");
         }
-        public void GetMarkList(Student obj)
+        public void GetMarkList(List<Mark> mark)
         {
-            
+            for (int i = 0; i < mark.Count; i++)
+            {
+                mark[i].ShowMarkList();
+            }
         }
-        public void GetVisitList(Student obj)
+        public void GetVisitList(List<Visit> vis)
         {
-            // TODO implement here
+            for (int i = 0; i < vis.Count; i++)
+            {
+                vis[i].ShowVisitList();
+            }
         }
     }
 }

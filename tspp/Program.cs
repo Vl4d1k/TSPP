@@ -10,19 +10,20 @@ namespace tspp
     {
         private const string menu = "Choose operation:" +
                         "\n1.Add student" +
-                        "\n2.Remove student-" +
+                        "\n2.Remove student" +
                         "\n3.AllowForExam" +
                         "\n4.MakeReport-" +
                         "\n5.MakeExamList-" +
                         "\n6.Show(Students/Visiting/Marks)" +
                         "\n7.Set Visit" +
                         "\n8.Set Mark" +
-                        "\n0.Exit\n";
+                        "\n0.Exit";
         static void Main(string[] args)
         {
             List<Student> myList = new List<Student>();
             List<Mark> marks = new List<Mark>();
             List<Visit> visit = new List<Visit>();
+            Student stud = new Student("1");
             Deccan dec = new Deccan();
             Teacher tech = new Teacher();
             Methodist met = new Methodist();
@@ -34,6 +35,7 @@ namespace tspp
             string myChoise;
             while (true)
             {
+                
                 key = Console.ReadLine();
                 if (!Int32.TryParse(key, out iChoice) || !(iChoice >= 1 && iChoice <= 8))
                 {
@@ -73,18 +75,14 @@ namespace tspp
                         }
                             break;
                     case "4":
-                        for (int j = 0; j < myList.Count; j++)
-                        {
-                            
-                        }
+                        Console.WriteLine("Report created");
                         break;
                     case "5":
-                        for (int j = 0; j < myList.Count; j++)
+                        for (int i = 0; i < myList.Count; i++)
                         {
-                           
-                            Console.WriteLine("Report created");
-                            
+                            met.MakeExamList(myList[i]);
                         }
+                        Console.WriteLine("Exam list created");
                         break;
                     case "6":
                         Console.WriteLine("Choose option:");
@@ -101,24 +99,18 @@ namespace tspp
                                 }
                                 break;
                             case "2":
-                                for (int i = 0; i < myList.Count; i++)
-                                {
-                                    visit[i].ShowVisitList();
-                                }
+                                stud.GetVisitList(visit);
                                 break;
                             case "3":
-                                for (int i = 0; i < myList.Count; i++)
-                                {
-                                    marks[i].ShowMarkList();
-                                }
+                                stud.GetMarkList(marks);
                                 break;
                         }
                         break;
                     case "7":
-                        visit.Add(new Visit());
+                        tech.SetVisit(visit);
                         break;
                     case "8":
-                        marks.Add(new Mark());
+                        tech.SetMark(marks);
                         break;
                     case "0": return ;
                     default: Console.WriteLine("There're not this number"); break;

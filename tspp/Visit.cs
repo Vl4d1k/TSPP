@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace tspp
 {
-    class Visit
+    public class Visit
     {
         public DateTime date;
         public string subject;
-        public int number;
+        public string number;
+        public Visit()
+        {
+            Console.Write("Enter number of student: ");
+            number = Console.ReadLine();
+            Console.Write("Enter subject: ");
+            subject = Console.ReadLine();
+            Console.Write("Enter date: ");
+            date = Convert.ToDateTime(Console.ReadLine());
+        }
         public void ShowVisitList()
         {
             Console.WriteLine($"Number of student: {this.number} ");
