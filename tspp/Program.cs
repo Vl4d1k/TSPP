@@ -51,15 +51,7 @@ namespace tspp
                     case "2":
                         Console.WriteLine("Enter number of student:");
                         keySearch = Console.ReadLine();
-                        for (int j = 0; j < myList.Count; j++)
-                        {
-                            if (myList[j].number == Convert.ToString(keySearch))
-                            {
-                                dec.RemoveStudent(myList, Convert.ToInt32(keySearch));
-                                Console.WriteLine("Element deleted");
-                            }
-                            else Console.WriteLine("There are not students with that number");
-                        }
+                        dec.RemoveStudent(myList, Convert.ToInt32(keySearch));
                         break;
                     case "3":
                         Console.WriteLine("Enter number of student:");
@@ -75,13 +67,11 @@ namespace tspp
                         }
                             break;
                     case "4":
+                        met.MakeReport(myList);
                         Console.WriteLine("Report created");
                         break;
                     case "5":
-                        for (int i = 0; i < myList.Count; i++)
-                        {
-                            met.MakeExamList(myList[i]);
-                        }
+                            met.MakeExamList(myList);
                         Console.WriteLine("Exam list created");
                         break;
                     case "6":

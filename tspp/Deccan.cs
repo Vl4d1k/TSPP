@@ -14,12 +14,19 @@ namespace tspp
         }
 
         public string firstName;
-
         public string secondName;
 
         public void RemoveStudent(List<Student> stud, int delNum)
         {
-            stud.Remove(stud[delNum]);
+            for (int i = 0; i < stud.Count; i++)
+            {
+                if (stud[i].number == Convert.ToString(delNum))
+                {
+                    stud.Remove(stud[i]);
+                    Console.WriteLine("Element deleted");
+                }
+                else Console.WriteLine("There are not students with that number");
+            }
         }
         public void AllowForExam(Student obj)
         {

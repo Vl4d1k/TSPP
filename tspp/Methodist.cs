@@ -11,29 +11,33 @@ namespace tspp
         public Methodist()
         {
         }
-
         public string firstName;
         public string secondName;
-        StreamWriter sw = new StreamWriter("C:\\Users\\vlad1\\source\\repos\\tspp\\tspp\\report.txt");
         StreamWriter ex = new StreamWriter("C:\\Users\\vlad1\\source\\repos\\tspp\\tspp\\exam.txt");
-
-        public void MakeReport(Student obj)
+        StreamWriter sw = new StreamWriter("C:\\Users\\vlad1\\source\\repos\\tspp\\tspp\\report.txt");
+        public void MakeReport(List<Student> stud)
         {
-            sw.WriteLine(obj.number);
-            sw.WriteLine(obj.firstName);
-            sw.WriteLine(obj.secondName);
-            sw.WriteLine(obj.group);
-            sw.WriteLine("+--------------+");
+            for (int j = 0; j < stud.Count; j++)
+            {
+                sw.WriteLine(stud[j].number);
+                sw.WriteLine(stud[j].firstName);
+                sw.WriteLine(stud[j].secondName);
+                sw.WriteLine(stud[j].group);
+                sw.WriteLine(stud[j].allowExam);
+                sw.WriteLine("+--------------+");
+            }
+            
         }
 
-        public void MakeExamList(Student obj)
+        public void MakeExamList(List<Student> stud)
         {
-            if (obj.allowExam == true)
+            for (int i = 0; i < stud.Count; i++)
+                if (stud[i].allowExam == true)
             {
-                ex.WriteLine(obj.number);
-                ex.WriteLine(obj.firstName);
-                ex.WriteLine(obj.secondName);
-                ex.WriteLine(obj.group);
+                ex.WriteLine(stud[i].number);
+                ex.WriteLine(stud[i].firstName);
+                ex.WriteLine(stud[i].secondName);
+                ex.WriteLine(stud[i].group);
                 ex.WriteLine("+--------------+");
             }
         }
