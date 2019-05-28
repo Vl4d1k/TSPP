@@ -27,58 +27,39 @@ namespace tspp
             Deccan dec = new Deccan();
             Teacher tech = new Teacher();
             Methodist met = new Methodist();
-            string keySearch;
             string key;
-            Console.WriteLine(menu);
             string myChoise;
             while (true)
-            {          
+            {
+                Console.WriteLine(menu);
                 key = Console.ReadLine();
                 switch (key)
                 {
                     case "1":
-                        myList.Add(new Student());
-
+                        dec.AddStudent(myList);
                         break;
                     case "2":
-                        Console.WriteLine("Enter number of student:");
-                        keySearch = Console.ReadLine();
-                        dec.RemoveStudent(myList, Convert.ToInt32(keySearch));
+                        dec.RemoveStudent(myList);
                         break;
                     case "3":
-                        Console.WriteLine("Enter number of student:");
-                        keySearch = Console.ReadLine();
-                        for (int j = 0; j < myList.Count; j++)
-                        {
-                            if (myList[j].number == keySearch)
-                            {
-                                dec.AllowForExam(myList[j]);
-                                Console.WriteLine("Student was allowed");
-                            }
-                            else Console.WriteLine("There are not students");
-                        }
-                            break;
+                        dec.AllowForExam(myList);
+                        break;
                     case "4":
                         met.MakeReport(myList);
-                        Console.WriteLine("Report created");
                         break;
                     case "5":
-                            met.MakeExamList(myList);
-                        Console.WriteLine("Exam list created");
+                        met.MakeExamList(myList);
                         break;
                     case "6":
-                        Console.WriteLine("Choose option:");
-                        Console.WriteLine("\n1. Show students:");
-                        Console.WriteLine("\n2. Show visiting:");
-                        Console.WriteLine("\n3. Show marks:");
+                        Console.WriteLine("Choose option:\n");
+                        Console.WriteLine("1. Show students:\n");
+                        Console.WriteLine("2. Show visiting:\n");
+                        Console.WriteLine("3. Show marks:\n");
                         myChoise = Console.ReadLine();
                         switch (myChoise)
                         {
                             case "1":
-                                for (int i = 0; i < myList.Count; i++)
-                                {
-                                    myList[i].ShowStudList();
-                                }
+                                dec.GetStudentList(myList);
                                 break;
                             case "2":
                                 stud.GetVisitList(visit);

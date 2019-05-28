@@ -45,6 +45,7 @@ namespace tspp
         }
         public void GetMarkList(List<Mark> mark)
         {
+            if (mark.Count == 0) Console.WriteLine("There are not marks");
             for (int i = 0; i < mark.Count; i++)
             {
                 mark[i].ShowMarkList();
@@ -52,6 +53,7 @@ namespace tspp
         }
         public void GetVisitList(List<Visit> vis)
         {
+            if (vis.Count == 0) Console.WriteLine("There are not visit list");
             for (int i = 0; i < vis.Count; i++)
             {
                 vis[i].ShowVisitList();

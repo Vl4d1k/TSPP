@@ -26,6 +26,7 @@ namespace tspp
                 sw.WriteLine(stud[j].allowExam);
                 sw.WriteLine("+--------------+");
             }
+            Console.WriteLine("Report created");
             sw.Flush();
             sw.Close();
             
@@ -42,6 +43,7 @@ namespace tspp
                 ex.WriteLine(stud[i].group);
                 ex.WriteLine("+--------------+");
             }
+            Console.WriteLine("Exam list created");
             ex.Flush();
             ex.Close();
         }
