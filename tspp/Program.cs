@@ -8,6 +8,10 @@ namespace tspp
 {
     class Program
     {
+        private const string submenu = "Choose option:\n" +
+                        "1. Show students:\n" +
+                        "2. Show visiting:\n" +
+                        "3. Show marks:\n";
         private const string menu = "Choose operation:" +
                         "\n1.Add student" +
                         "\n2.Remove student" +
@@ -51,10 +55,7 @@ namespace tspp
                         met.MakeExamList(myList);
                         break;
                     case "6":
-                        Console.WriteLine("Choose option:\n");
-                        Console.WriteLine("1. Show students:\n");
-                        Console.WriteLine("2. Show visiting:\n");
-                        Console.WriteLine("3. Show marks:\n");
+                        Console.WriteLine(submenu);
                         myChoise = Console.ReadLine();
                         switch (myChoise)
                         {
