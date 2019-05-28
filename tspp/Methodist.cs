@@ -26,6 +26,8 @@ namespace tspp
                 sw.WriteLine(stud[j].allowExam);
                 sw.WriteLine("+--------------+");
             }
+            sw.Flush();
+            sw.Close();
             
         }
 
@@ -40,6 +42,8 @@ namespace tspp
                 ex.WriteLine(stud[i].group);
                 ex.WriteLine("+--------------+");
             }
+            ex.Flush();
+            ex.Close();
         }
     }
 }

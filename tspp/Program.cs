@@ -27,21 +27,13 @@ namespace tspp
             Deccan dec = new Deccan();
             Teacher tech = new Teacher();
             Methodist met = new Methodist();
-            
             string keySearch;
-            int iChoice = -1;
             string key;
             Console.WriteLine(menu);
             string myChoise;
             while (true)
-            {
-                
+            {          
                 key = Console.ReadLine();
-                if (!Int32.TryParse(key, out iChoice) || !(iChoice >= 1 && iChoice <= 8))
-                {
-                    Console.WriteLine(menu);
-                    continue;
-                }
                 switch (key)
                 {
                     case "1":
