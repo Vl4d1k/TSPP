@@ -8,6 +8,10 @@ namespace tspp
 {
     class Program
     {
+        private const string titul = 
+            "\n+-----------------------------------------------------+" +
+            "\n| student № |\tFirst and Second name |\tGroup |\tExam |" +
+            "\n+-----------------------------------------------------+";
         private const string submenu = "Choose option:\n" +
                         "1. Show students:\n" +
                         "2. Show visiting:\n" +
@@ -49,7 +53,7 @@ namespace tspp
                         dec.AllowForExam(myList);
                         break;
                     case "4":
-                        met.MakeReport(myList);
+                        met.MakeReport(myList, marks);
                         break;
                     case "5":
                         met.MakeExamList(myList);
@@ -60,6 +64,7 @@ namespace tspp
                         switch (myChoise)
                         {
                             case "1":
+                                Console.WriteLine(titul);
                                 dec.GetStudentList(myList);
                                 break;
                             case "2":

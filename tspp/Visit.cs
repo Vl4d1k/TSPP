@@ -11,6 +11,7 @@ namespace tspp
         public DateTime date;
         public string subject;
         public string number;
+        public string lessonType;
         public Visit()
         {
             Console.Write("Enter number of student: ");
@@ -19,13 +20,13 @@ namespace tspp
             subject = Console.ReadLine();
             Console.Write("Enter date: ");
             date = Convert.ToDateTime(Console.ReadLine());
+            Console.Write("Enter type of lesson: ");
+            lessonType = Console.ReadLine();
         }
         public void ShowVisitList()
         {
-            Console.WriteLine($"Number of student: {this.number} ");
-            Console.WriteLine($"Subject: {this.subject} ");
-            Console.WriteLine($"Date: { this.date} ");
-            Console.WriteLine("----------------");
+            Console.WriteLine("\n|{0,11}|{1,8} | {2,17} |{3,6}|", this.number, this.subject, this.date, this.lessonType);
+            Console.WriteLine("\n+-------------------------------------------------+");
         }
     }
 }

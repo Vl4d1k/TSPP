@@ -8,6 +8,11 @@ namespace tspp
 {
     public class Mark
     {
+        public string subject;
+        public string number;
+        public string value;
+        public string lessonType;
+
         public Mark()
         {
             Console.Write("Enter number of student: ");
@@ -16,16 +21,13 @@ namespace tspp
             subject = Console.ReadLine();
             Console.Write("Enter value: ");
             value = Console.ReadLine();
+            Console.Write("Enter type of lesson: ");
+            lessonType = Console.ReadLine();
         }
-        public string subject;
-        public string number;
-        public string value;
         public void ShowMarkList()
         {
-            Console.WriteLine($"Number of student: {this.number} ");
-            Console.WriteLine($"Subject: {this.subject} ");
-            Console.WriteLine($"Value: { this.value} ");
-            Console.WriteLine("----------------");
+            Console.WriteLine("\n|{0,11}|{1,7} |{2,6}| {3,6}|", this.number, this.subject, this.value, this.lessonType);
+            Console.WriteLine("\n+-----------------------------------+ ");
         }
     }
 }
