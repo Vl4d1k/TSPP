@@ -27,18 +27,7 @@ namespace tspp
 
         public void MakeReport(List<Student> stud, List<Mark> mark)
         {
-            for (int j = 0; j < stud.Count; j++)
-            {
-                Console.WriteLine("\n|Number:{0,11}|  \tFirst & Second Name:{1,10} {2,10} | Group:{3,5} |", stud[j].number, stud[j].firstName, stud[j].secondName, stud[j].group);
-                for (int f = 0; f < mark.Count; f++)
-                {
-                    if (mark[j].number == stud[j].number)
-                    {
-                        Console.WriteLine("\n|Subject:{0,7} | Value:{1,5} |, Type of Lesson:{2,13} |", mark[f].subject, mark[f].value, mark[f].lessonType);
-                        Console.WriteLine("+------------------------------------------------------------+ ");
-                    }
-                }
-            }
+            Print.MakeReport(stud, mark);
         }
     }
 }

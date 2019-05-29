@@ -14,11 +14,6 @@ namespace tspp
         public string number;
         public bool allowExam;
 
-        public Student(string h)
-        {
-            firstName = h;
-        }
-
         public Student(string _firstName,string _secondName,string _group,string _number, bool _allowExam)
         {
             List<Mark> marks = new List<Mark>();

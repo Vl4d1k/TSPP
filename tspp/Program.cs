@@ -34,16 +34,15 @@ namespace tspp
                         "\n7.Set Visit" +
                         "\n8.Set Mark" +
                         "\n0.Exit";
-        
         static void Main(string[] args)
         {
             List<Student> myList = new List<Student>();
             List<Mark> marks = new List<Mark>();
             List<Visit> visit = new List<Visit>();
-            Student stud = new Student("1");
             Deccan dec = new Deccan();
             Teacher tech = new Teacher();
             Methodist met = new Methodist();
+            Print print = new Print();
             DateTime date;
             string value;
             string key;
@@ -52,21 +51,6 @@ namespace tspp
             string number;
             string lessonType;
             string myChoise;
-            void ShowStudent(Student student)
-            {
-                Console.WriteLine("\n|{0,11}|  \t{1,10} {2,10} | {3,5} | {4,5} |", student.number, student.firstName, student.secondName, student.group, student.allowExam);
-                Console.WriteLine("+-----------------------------------------------------+ ");
-            }
-            void ShowMark(Mark mark)
-            {
-                Console.WriteLine("\n|{0,11}|{1,7} |{2,6}| {3,6}|", mark.number, mark.subject, mark.value, mark.lessonType);
-                Console.WriteLine("\n+-----------------------------------+ ");
-            }
-            void ShowVisit(Visit vis)
-            {
-                Console.WriteLine("\n|{0,11}|{1,8} | {2,17} |{3,6}|", vis.number, vis.subject, vis.date, vis.lessonType);
-                Console.WriteLine("\n+-------------------------------------------------+");
-            }
             while (true)
             {
                 Console.WriteLine(menu);
@@ -102,7 +86,7 @@ namespace tspp
                         break;
                     case "5":
                         Console.WriteLine(titul);
-                        ShowStudent(met.MakeExamList(myList));
+                        print.ShowStudent(met.MakeExamList(myList));
                         break;
                     case "6":
                         Console.WriteLine(submenu);
@@ -114,7 +98,7 @@ namespace tspp
                                 if (myList.Count == 0) Console.WriteLine("There are not student");
                                 for (int k = 0; k < myList.Count; k++)
                                 {
-                                    ShowStudent(myList[k]);
+                                    print.ShowStudent(myList[k]);
                                 }
                                 break;
                             case "2":
@@ -126,7 +110,7 @@ namespace tspp
                                 {
                                     if (visit[i].lessonType == lesType)
                                     {
-                                        ShowVisit(visit[i]);
+                                        print.ShowVisit(visit[i]);
                                     }
                                 }
                                 break;
@@ -139,7 +123,7 @@ namespace tspp
                                 {
                                     if (marks[i].lessonType == lesType)
                                     {
-                                        ShowMark(marks[i]);
+                                        print.ShowMark(marks[i]);
                                     }
                                 }
                                 break;
