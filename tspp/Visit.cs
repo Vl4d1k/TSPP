@@ -12,21 +12,12 @@ namespace tspp
         public string subject;
         public string number;
         public string lessonType;
-        public Visit()
+        public Visit(string _number, string _subject, DateTime _date, string _lessonType)
         {
-            Console.Write("Enter number of student: ");
-            number = Console.ReadLine();
-            Console.Write("Enter subject: ");
-            subject = Console.ReadLine();
-            Console.Write("Enter date: ");
-            date = Convert.ToDateTime(Console.ReadLine());
-            Console.Write("Enter type of lesson: ");
-            lessonType = Console.ReadLine();
-        }
-        public void ShowVisitList()
-        {
-            Console.WriteLine("\n|{0,11}|{1,8} | {2,17} |{3,6}|", this.number, this.subject, this.date, this.lessonType);
-            Console.WriteLine("\n+-------------------------------------------------+");
+            number = _number;
+            subject = _subject;
+            date = _date;
+            lessonType = _lessonType; 
         }
     }
 }

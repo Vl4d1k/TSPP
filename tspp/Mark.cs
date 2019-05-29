@@ -13,21 +13,12 @@ namespace tspp
         public string value;
         public string lessonType;
 
-        public Mark()
+        public Mark(string _number,string  _subject,string _value,string _lessonType)
         {
-            Console.Write("Enter number of student: ");
-            number = Console.ReadLine();
-            Console.Write("Enter subject: ");
-            subject = Console.ReadLine();
-            Console.Write("Enter value: ");
-            value = Console.ReadLine();
-            Console.Write("Enter type of lesson: ");
-            lessonType = Console.ReadLine();
-        }
-        public void ShowMarkList()
-        {
-            Console.WriteLine("\n|{0,11}|{1,7} |{2,6}| {3,6}|", this.number, this.subject, this.value, this.lessonType);
-            Console.WriteLine("\n+-----------------------------------+ ");
+            number = _number;
+            subject = _subject;
+            value = _value;
+            lessonType = _lessonType;
         }
     }
 }

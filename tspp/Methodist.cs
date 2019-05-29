@@ -8,29 +8,21 @@ namespace tspp
 {
     class Methodist
     {
-        private const string titul =
-    "\n+-----------------------------------------------------+" +
-    "\n| student № |\tFirst and Second name |\tGroup |\tExam |" +
-    "\n+-----------------------------------------------------+";
-        public Methodist()
-        {
-        }
+        public Methodist() {}
         public string firstName;
         public string secondName;
-        StreamWriter ex = new StreamWriter("C:\\Users\\vlad1\\source\\repos\\tspp\\tspp\\exam.txt");
 
-        public void MakeExamList(List<Student> stud)
+        public Student MakeExamList(List<Student> stud)
         {
             for (int i = 0; i < stud.Count; i++)
-                if (stud[i].allowExam == true)
             {
-                Console.WriteLine(titul);
-                Console.WriteLine("\n|{0,11}|  \t{1,10} {2,10} | {3,5} | {4,5} |", stud[i].number, stud[i].firstName, stud[i].secondName, stud[i].group, stud[i].allowExam);
-                Console.WriteLine("+-----------------------------------------------------+ ");
+                if (stud[i].allowExam == true)
+                {
+                    return stud[i];
+                }
             }
-            Console.WriteLine("Exam list created");
-            ex.Flush();
-            ex.Close();
+            return null;
+            
         }
 
         public void MakeReport(List<Student> stud, List<Mark> mark)
@@ -47,7 +39,6 @@ namespace tspp
                     }
                 }
             }
-            Console.WriteLine("Report created");
         }
     }
 }

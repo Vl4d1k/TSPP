@@ -8,53 +8,38 @@ namespace tspp
 {
     class Deccan
     {
-        public Deccan()
-        {
-
-        }
-
+        public Deccan() {}
         public string firstName;
         public string secondName;
 
-        public void GetStudentList(List<Student> stud)
+        public void AddStudent(List<Student> stud, string _firstName, string _secondName, string _group, string _number, bool _allowExam)
         {
-            if (stud.Count == 0) Console.WriteLine("There are not student");
-            for (int k = 0; k < stud.Count; k++)
-            {
-                stud[k].ShowStudList();
-            }
+            stud.Add(new Student(_firstName, _secondName, _group, _number, _allowExam));
         }
-
-        public void AddStudent(List<Student> stud)
+        public int RemoveStudent(List<Student> stud, string keySearch)
         {
-            stud.Add(new Student());
-        }
-        public void RemoveStudent(List<Student> stud)
-        {
-            Console.WriteLine("Enter number of student:");
-            string keySearch = Console.ReadLine();
             for (int i = 0; i < stud.Count; i++)
             {
                 if (stud[i].number == Convert.ToString(keySearch))
                 {
                     stud.Remove(stud[i]);
-                    Console.WriteLine("Element deleted");
+                    return 1;
                 }
-                else Console.WriteLine("There are not students with that number");
+                else return 0;
             }
+            return 0;
         }
-        public void AllowForExam(List<Student> stud)
+        public int AllowForExam(List<Student> stud,string allowKey)
         {
-            Console.WriteLine("Enter number of student:");
-            var keySearch = Console.ReadLine();
             for (int j = 0; j < stud.Count; j++)
             {
-                if (stud[j].number == keySearch)
+                if (stud[j].number == allowKey)
                 {
                     stud[j].allowExam = true;
-                    Console.WriteLine("Student was allowed");
+                    return 1;
                 }
             }
+            return 0;
         }
     }
 }

@@ -8,10 +8,18 @@ namespace tspp
 {
     class Program
     {
+        private const string MarkTitul =
+        "\n+-----------------------------------+ " +
+        "\n| student № | Subject | Mark | Type |" +
+        "\n+-----------------------------------+ ";
+        private const string VisitTitul =
+        "\n+-------------------------------------------------+" +
+        "\n| student № | Subject |         Date       | Type |" +
+        "\n+-------------------------------------------------+";
         private const string titul = 
-            "\n+-----------------------------------------------------+" +
-            "\n| student № |\tFirst and Second name |\tGroup |\tExam |" +
-            "\n+-----------------------------------------------------+";
+        "\n+-----------------------------------------------------+" +
+        "\n| student № |\tFirst and Second name |\tGroup |\tExam |" +
+        "\n+-----------------------------------------------------+";
         private const string submenu = "Choose option:\n" +
                         "1. Show students:\n" +
                         "2. Show visiting:\n" +
@@ -26,6 +34,7 @@ namespace tspp
                         "\n7.Set Visit" +
                         "\n8.Set Mark" +
                         "\n0.Exit";
+        
         static void Main(string[] args)
         {
             List<Student> myList = new List<Student>();
@@ -35,8 +44,29 @@ namespace tspp
             Deccan dec = new Deccan();
             Teacher tech = new Teacher();
             Methodist met = new Methodist();
+            DateTime date;
+            string value;
             string key;
+            string lesType;
+            string subject;
+            string number;
+            string lessonType;
             string myChoise;
+            void ShowStudent(Student student)
+            {
+                Console.WriteLine("\n|{0,11}|  \t{1,10} {2,10} | {3,5} | {4,5} |", student.number, student.firstName, student.secondName, student.group, student.allowExam);
+                Console.WriteLine("+-----------------------------------------------------+ ");
+            }
+            void ShowMark(Mark mark)
+            {
+                Console.WriteLine("\n|{0,11}|{1,7} |{2,6}| {3,6}|", mark.number, mark.subject, mark.value, mark.lessonType);
+                Console.WriteLine("\n+-----------------------------------+ ");
+            }
+            void ShowVisit(Visit vis)
+            {
+                Console.WriteLine("\n|{0,11}|{1,8} | {2,17} |{3,6}|", vis.number, vis.subject, vis.date, vis.lessonType);
+                Console.WriteLine("\n+-------------------------------------------------+");
+            }
             while (true)
             {
                 Console.WriteLine(menu);
@@ -44,19 +74,35 @@ namespace tspp
                 switch (key)
                 {
                     case "1":
-                        dec.AddStudent(myList);
+                        Console.Write("Enter first name: ");
+                        string firstName = Console.ReadLine();
+                        Console.Write("Enter second name: ");
+                        string secondName = Console.ReadLine();
+                        Console.Write("Enter group: ");
+                        string group = Console.ReadLine();
+                        Console.Write("Enter number: ");
+                        number = Console.ReadLine();
+                        bool allowExam = false;
+                        dec.AddStudent(myList, firstName, secondName, group, number, allowExam);
                         break;
                     case "2":
-                        dec.RemoveStudent(myList);
+                        Console.WriteLine("Enter number of student:");
+                        string keySearch = Console.ReadLine();
+                        if (dec.RemoveStudent(myList,keySearch)==1) Console.WriteLine("Element deleted");
+                        else Console.WriteLine("There are not students with that number");
                         break;
                     case "3":
-                        dec.AllowForExam(myList);
+                        Console.WriteLine("Enter number of student:");
+                        string allowKey = Console.ReadLine();
+                        if (dec.AllowForExam(myList, allowKey) == 1) Console.WriteLine("Student was allowed");
+                        else Console.WriteLine("There are not students with that number");
                         break;
                     case "4":
                         met.MakeReport(myList, marks);
                         break;
                     case "5":
-                        met.MakeExamList(myList);
+                        Console.WriteLine(titul);
+                        ShowStudent(met.MakeExamList(myList));
                         break;
                     case "6":
                         Console.WriteLine(submenu);
@@ -65,21 +111,61 @@ namespace tspp
                         {
                             case "1":
                                 Console.WriteLine(titul);
-                                dec.GetStudentList(myList);
+                                if (myList.Count == 0) Console.WriteLine("There are not student");
+                                for (int k = 0; k < myList.Count; k++)
+                                {
+                                    ShowStudent(myList[k]);
+                                }
                                 break;
                             case "2":
-                                stud.GetVisitList(visit);
+                                if (visit.Count == 0) Console.WriteLine("There are not visit list");
+                                Console.WriteLine("Enter type of lesson");
+                                lesType = Console.ReadLine();
+                                Console.WriteLine(VisitTitul);
+                                for (int i = 0; i < visit.Count; i++)
+                                {
+                                    if (visit[i].lessonType == lesType)
+                                    {
+                                        ShowVisit(visit[i]);
+                                    }
+                                }
                                 break;
                             case "3":
-                                stud.GetMarkList(marks);
+                                if (marks.Count == 0) Console.WriteLine("There are not marks");
+                                Console.WriteLine("Enter type of lesson");
+                                lesType = Console.ReadLine();
+                                Console.WriteLine(MarkTitul);
+                                for (int i = 0; i < marks.Count; i++)
+                                {
+                                    if (marks[i].lessonType == lesType)
+                                    {
+                                        ShowMark(marks[i]);
+                                    }
+                                }
                                 break;
                         }
                         break;
                     case "7":
-                        tech.SetVisit(visit);
+                        Console.Write("Enter number of student: ");
+                        number = Console.ReadLine();
+                        Console.Write("Enter subject: ");
+                        subject = Console.ReadLine();
+                        Console.Write("Enter date: ");
+                        date = Convert.ToDateTime(Console.ReadLine());
+                        Console.Write("Enter type of lesson: ");
+                        lessonType = Console.ReadLine();
+                        tech.SetVisit(visit, number, subject, date, lessonType);
                         break;
                     case "8":
-                        tech.SetMark(marks);
+                        Console.Write("Enter number of student: ");
+                        number = Console.ReadLine();
+                        Console.Write("Enter subject: ");
+                        subject = Console.ReadLine();
+                        Console.Write("Enter value: ");
+                        value = Console.ReadLine();
+                        Console.Write("Enter type of lesson: ");
+                        lessonType = Console.ReadLine();
+                        tech.SetMark(marks, number, subject, value, lessonType);
                         break;
                     case "0": return ;
                     default: Console.WriteLine("There're not this number"); break;
