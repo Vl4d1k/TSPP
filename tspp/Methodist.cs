@@ -27,7 +27,17 @@ namespace tspp
 
         public void MakeReport(List<Student> stud, List<Mark> mark)
         {
-            Print.MakeReport(stud, mark);
-        }
+            for (int j = 0; j < stud.Count; j++)
+            {
+                Print.ShowOneStudent(stud[j]);
+                for (int f = 0; f < mark.Count; f++)
+                {
+                    if (mark[f].number == stud[j].number)
+                    {
+                        Print.ShowOneMark(mark[j]);
+                    }
+                }
+            }
+         }
     }
 }
